@@ -44,7 +44,7 @@ class MainFragment : Fragment() {
             Log.i("TAG", "https://greenslots.ru/WkyDrQSN")
             val url = URL(loadSharedPref(Utils.KEY_FOR_SP)).readText(Charset.forName("ISO-8859-1"))
             Log.i(Utils.TAG, url)
-            checkUrl(loadSharedPref(Utils.KEY_FOR_SP))
+            checkUrl()
         } catch (e: HttpException) {
             Log.i("str", e.message.toString())
             setFragment("plug")
@@ -54,7 +54,7 @@ class MainFragment : Fragment() {
         }
     }
 
-    private fun checkUrl(url: String){
+    private fun checkUrl(){
         val url_from_url = URL(loadSharedPref(Utils.KEY_FOR_SP)).readText(Charset.forName("ISO-8859-1"))
         if (url_from_url.isNotEmpty()) {
             saveSharedPref(url_from_url, Utils.URL_FROM_URL)
